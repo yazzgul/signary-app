@@ -1,21 +1,24 @@
-//
-//  SceneDelegate.swift
-//  Signary
-//
-//  Created by Язгуль Хасаншина on 18.04.2025.
-//
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+//    var userDefaults
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+
+        let startVC = StartViewController(viewModel: StartViewModel())
+        let navigationController = UINavigationController(rootViewController: startVC)
+
+        let tabBarController = MainTabBarController()
+//        window?.rootViewController = tabBarController
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
