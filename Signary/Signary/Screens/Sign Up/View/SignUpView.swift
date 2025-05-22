@@ -56,7 +56,8 @@ class SignUpView: UIView {
         return textField
     }()
     private lazy var signUpToMainScreenButton: UIButton = {
-        let button = UIButton()
+//        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .subtitleFont

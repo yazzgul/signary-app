@@ -54,7 +54,8 @@ class SignInView: UIView {
     }()
 
     private lazy var goToMainScreenButton: UIButton = {
-        let button = UIButton()
+//        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .subtitleFont

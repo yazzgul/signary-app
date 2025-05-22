@@ -13,4 +13,7 @@ extension UIFont {
     static var bodyFont: UIFont {
         .systemFont(ofSize: 17, weight: .regular, width: .condensed)
     }
+    static var navigationBarFont: UIFont {
+        .systemFont(ofSize: 17, weight: .heavy, width: .condensed)
+    }
 }
