@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
 
         view = contentView
 
+        navigationItem.title = "Menu"
+
 
     }
 

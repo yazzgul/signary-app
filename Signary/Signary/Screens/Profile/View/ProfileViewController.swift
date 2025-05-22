@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
 
         view = contentView
 
+        navigationItem.title = "Profile"
 
     }
 

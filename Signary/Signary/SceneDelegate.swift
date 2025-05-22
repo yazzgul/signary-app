@@ -11,12 +11,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let startVC = StartViewController(viewModel: StartViewModel())
-        let navigationController = UINavigationController(rootViewController: startVC)
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: UIFont.navigationBarFont,
+            .foregroundColor: UIColor.delicateBlue()
+        ]
+
+//        let startVC = StartViewController(viewModel: StartViewModel())
+//        let navigationController = UINavigationController(rootViewController: startVC)
 
         let tabBarController = MainTabBarController()
-//        window?.rootViewController = tabBarController
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBarController
+//        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
     }

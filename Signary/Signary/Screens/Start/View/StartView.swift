@@ -29,7 +29,9 @@ class StartView: UIView {
         return label
     }()
     private lazy var nextButton: UIButton = {
-        let button = UIButton()
+//        let button = UIButton()
+        let button = UIButton(type: .system)
+
         button.setTitle("Start", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .subtitleFont
