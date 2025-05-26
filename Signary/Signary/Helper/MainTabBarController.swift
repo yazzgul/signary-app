@@ -8,6 +8,11 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.hidesBackButton = true
+
+        tabBar.tintColor = UIColor.darkPurple()
+        tabBar.unselectedItemTintColor = UIColor.delicateBlue()
+
         let mainVC = MainViewController(viewModel: mainVM)
         let profileVC = ProfileViewController(viewModel: profileVM)
 

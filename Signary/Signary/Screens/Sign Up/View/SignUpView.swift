@@ -2,7 +2,7 @@
 import UIKit
 
 protocol SignUpGoToMainScreenViewDelegate: AnyObject {
-    func signUpButtonDidPressed(email: String, password: String, passwordCheck: String)
+    func signUpButtonDidPressed(username: String, email: String, password: String, passwordCheck: String)
 }
 protocol BackToSignInScreenViewDelegate: AnyObject {
     func backToSignInButtonDidPressed()
@@ -19,6 +19,17 @@ class SignUpView: UIView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    private lazy var usernameTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter Your Username (agent007, ...)"
+        textField.backgroundColor = .darkBlue()
+        textField.textColor = .lightBlue()
+        textField.borderStyle = .roundedRect
+        textField.font = .bodyFont
+        textField.autocapitalizationType = .none
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
     }()
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
@@ -66,21 +77,13 @@ class SignUpView: UIView {
         button.layer.cornerRadius = 25
 
         let action = UIAction { [weak self] _ in
-
+            if let username = self?.usernameTextField.text,
+               let email = self?.emailTextField.text,
+               let password = self?.passwordTextField.text,
+               let passwordCheck = self?.passwordCheckTextField.text {
+                self?.signUpToMainScreenDelegate?.signUpButtonDidPressed(username: username, email: email, password: password, passwordCheck: passwordCheck)
+            }
         }
-//        let action = UIAction { [weak self] _ in
-//            if let email = self?.emailTextField.text,
-//                let password = self?.passwordTextField.text,
-//                let passwordCheck = self?.passwordCheckTextField.text,
-//                let userName = self?.userNameTextField.text {
-//                self?.signUpEnterButtonDelegate?.signUpEnterButtonDidPressed(
-//                    email: email,
-//                    password: password,
-//                    passwordAgain: passwordCheck,
-//                    userName: userName
-//                )
-//            }
-//        }
 
         button.addAction(action, for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +107,7 @@ class SignUpView: UIView {
     }()
 
     private lazy var loginTextFieldsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, passwordCheckTextField])
+        let stackView = UIStackView(arrangedSubviews: [usernameTextField, emailTextField, passwordTextField, passwordCheckTextField])
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
@@ -146,6 +149,9 @@ extension SignUpView {
             captionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             captionLabel.widthAnchor.constraint(equalToConstant: 150),
             captionLabel.heightAnchor.constraint(equalToConstant: 50),
+
+            usernameTextField.widthAnchor.constraint(equalToConstant: 250),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50),
 
             emailTextField.widthAnchor.constraint(equalToConstant: 250),
             emailTextField.heightAnchor.constraint(equalToConstant: 50),

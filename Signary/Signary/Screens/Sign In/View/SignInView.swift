@@ -4,7 +4,10 @@ import UIKit
 protocol GoToSignUpScreenViewDelegate: AnyObject {
     func goToSignUpScreenButtonDidPressed()
 }
-protocol GoToMainScreenViewDelegate: AnyObject {
+protocol GoToResetPasswordScreenViewDelegate: AnyObject {
+    func goToResetPasswordScreenButtonDidPressed()
+}
+protocol SignInGoToMainScreenViewDelegate: AnyObject {
     func signInButtonDidPressed(email: String, password: String)
 }
 
@@ -92,6 +95,21 @@ class SignInView: UIView {
 
         return button
     }()
+    private lazy var goToResetPasswordScreenButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.setTitle("Forgot password? Reset it", for: .normal)
+        button.setTitleColor(.darkPurple(), for: .normal)
+        button.titleLabel?.font = .bodyFont
+
+        let action = UIAction { [weak self] _ in
+            self?.resetPasswordDelegate?.goToResetPasswordScreenButtonDidPressed()
+        }
+        button.addAction(action, for: .touchUpInside)
+
+        return button
+    }()
     private lazy var loginTextFieldsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
         stackView.axis = .vertical
@@ -103,7 +121,8 @@ class SignInView: UIView {
     }()
 
     weak var signUpDelegate: GoToSignUpScreenViewDelegate?
-    weak var mainScreenDelegate: GoToMainScreenViewDelegate?
+    weak var mainScreenDelegate: SignInGoToMainScreenViewDelegate?
+    weak var resetPasswordDelegate: GoToResetPasswordScreenViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -122,6 +141,8 @@ extension SignInView {
         addSubview(goToMainScreenButton)
         addSubview(loginTextFieldsStackView)
         addSubview(goToSignUpScreenButton)
+        addSubview(goToResetPasswordScreenButton)
+
 
         NSLayoutConstraint.activate([
 
@@ -146,6 +167,11 @@ extension SignInView {
             goToSignUpScreenButton.widthAnchor.constraint(equalToConstant: 200),
             goToSignUpScreenButton.heightAnchor.constraint(equalToConstant: 25),
             goToSignUpScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+            goToResetPasswordScreenButton.bottomAnchor.constraint(equalTo: goToMainScreenButton.topAnchor, constant: -10),
+            goToResetPasswordScreenButton.widthAnchor.constraint(equalToConstant: 200),
+            goToResetPasswordScreenButton.heightAnchor.constraint(equalToConstant: 25),
+            goToResetPasswordScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             goToMainScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             goToMainScreenButton.widthAnchor.constraint(equalToConstant: 150),

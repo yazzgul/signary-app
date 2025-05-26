@@ -4,25 +4,30 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-//    var userDefaults
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
+//        var rootVC: UIViewController
+
         UINavigationBar.appearance().titleTextAttributes = [
             .font: UIFont.navigationBarFont,
             .foregroundColor: UIColor.delicateBlue()
         ]
+        UINavigationBar.appearance().tintColor = UIColor.darkBlue()
 
-//        let startVC = StartViewController(viewModel: StartViewModel())
-//        let navigationController = UINavigationController(rootViewController: startVC)
-
-        let tabBarController = MainTabBarController()
-        window?.rootViewController = tabBarController
-//        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        if UserDefaults.standard.bool(forKey: "isLogged") {
+            let tabBarController = MainTabBarController()
+            window?.rootViewController = tabBarController
+            window?.makeKeyAndVisible()
+        } else {
+            let startVC = StartViewController(viewModel: StartViewModel())
+            let navigationController = UINavigationController(rootViewController: startVC)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
 
     }
 

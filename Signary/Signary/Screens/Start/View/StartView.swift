@@ -12,7 +12,7 @@ class StartView: UIView {
         label.numberOfLines = .zero
         label.font = .titleFont
 //        label.font = .systemFont(ofSize: 50, weight: .heavy, width: .condensed)
-        label.textColor = .darkBlue()
+        label.textColor = .darkPurple()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -23,7 +23,7 @@ class StartView: UIView {
         label.numberOfLines = .zero
         label.font = .subtitleFont
 //        label.font = .systemFont(ofSize: 17, weight: .regular)
-        label.textColor = .darkPurple()
+        label.textColor = .darkBlue()
         label.textAlignment = .justified
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
