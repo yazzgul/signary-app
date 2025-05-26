@@ -23,7 +23,7 @@ class MainView: UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = .darkPurple()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Dictionary", for: .normal)
+        button.setTitle("Translator", for: .normal)
         button.layer.cornerRadius = 75
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .bodyFont
