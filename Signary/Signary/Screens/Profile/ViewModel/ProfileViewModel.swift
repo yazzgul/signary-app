@@ -33,6 +33,7 @@ class ProfileViewModel {
             }
             if successInOut {
 //                for default logic
+                UserDefaults.standard.removeObject(forKey: "isLogged")
             }
         }
     }
@@ -44,6 +45,7 @@ class ProfileViewModel {
                 completion(false, error)
             } else {
                 completion(true, nil)
+                UserDefaults.standard.removeObject(forKey: "isLogged")
             }
         }
     }

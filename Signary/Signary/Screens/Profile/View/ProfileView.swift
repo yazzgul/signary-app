@@ -1,7 +1,7 @@
 
 import UIKit
 
-protocol GoToStartScreenSignOutViewDelegate: AnyObject {
+protocol GoToStartScreenSignOutProfileViewDelegate: AnyObject {
     func signOutButtonDidPressed()
 }
 protocol DeleteProfileViewDelegate: AnyObject {
@@ -121,7 +121,7 @@ class ProfileView: UIView {
         return stackView
     }()
 
-    weak var signOutDelegate: GoToStartScreenSignOutViewDelegate?
+    weak var signOutDelegate: GoToStartScreenSignOutProfileViewDelegate?
     weak var deleteProfileDelegate: DeleteProfileViewDelegate?
 
 

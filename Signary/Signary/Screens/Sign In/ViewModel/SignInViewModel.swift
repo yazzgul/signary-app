@@ -23,6 +23,7 @@ class SignInViewModel {
             }
             if wasSuccesInSignIn {
                 self.successfulySignIn = true
+                UserDefaults.standard.setValue(true, forKey: "isLogged")
             }
         }
 

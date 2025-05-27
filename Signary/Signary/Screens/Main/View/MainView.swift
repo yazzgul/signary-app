@@ -1,6 +1,13 @@
 
 import UIKit
 
+protocol MainViewDelegate: AnyObject {
+    func openAlphabetButtonDidPressed()
+    func openTranslatorButtonDidPressed()
+    func openCameraButtonDidPressed()
+
+}
+
 class MainView: UIView {
 
     private lazy var alphabetButton: UIButton = {
@@ -10,10 +17,10 @@ class MainView: UIView {
         button.setTitle("Alphabet", for: .normal)
         button.layer.cornerRadius = 75
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .bodyFont
+        button.titleLabel?.font = .mainButtonFont
 
         let action = UIAction { [weak self] _ in
-//            self?.signUpDelegate?.goToSignUpScreenButtonDidPressed()
+            self?.delegate?.openAlphabetButtonDidPressed()
         }
         button.addAction(action, for: .touchUpInside)
 
@@ -26,10 +33,10 @@ class MainView: UIView {
         button.setTitle("Translator", for: .normal)
         button.layer.cornerRadius = 75
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .bodyFont
+        button.titleLabel?.font = .mainButtonFont
 
         let action = UIAction { [weak self] _ in
-//            self?.signUpDelegate?.goToSignUpScreenButtonDidPressed()
+            self?.delegate?.openTranslatorButtonDidPressed()
         }
         button.addAction(action, for: .touchUpInside)
 
@@ -42,25 +49,15 @@ class MainView: UIView {
         button.setTitle("Try with camera", for: .normal)
         button.layer.cornerRadius = 75
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .bodyFont
+        button.titleLabel?.font = .mainButtonFont
 
         let action = UIAction { [weak self] _ in
-//            self?.signUpDelegate?.goToSignUpScreenButtonDidPressed()
+            self?.delegate?.openCameraButtonDidPressed()
         }
         button.addAction(action, for: .touchUpInside)
 
         return button
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.lightBlue()
-        configureView()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     private lazy var viewsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [alphabetButton, dictionaryButton, cameraButton])
@@ -72,6 +69,17 @@ class MainView: UIView {
         return stackView
     }()
 
+    weak var delegate: MainViewDelegate?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = UIColor.lightBlue()
+        configureView()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }
 extension MainView {

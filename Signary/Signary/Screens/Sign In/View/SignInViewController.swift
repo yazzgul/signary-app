@@ -54,7 +54,7 @@ class SignInViewController: UIViewController {
     }
 
 }
-extension SignInViewController: GoToSignUpScreenViewDelegate {
+extension SignInViewController: GoToSignUpScreenSignInViewDelegate {
     func goToSignUpScreenButtonDidPressed() {
         let vm = SignUpViewModel()
         let vc = SignUpViewController(viewModel: vm)
@@ -62,12 +62,12 @@ extension SignInViewController: GoToSignUpScreenViewDelegate {
     }
     
 }
-extension SignInViewController: SignInGoToMainScreenViewDelegate {
+extension SignInViewController: SignInGoToMainScreenSignInViewDelegate {
     func signInButtonDidPressed(email: String, password: String) {
         viewModel.signInWithFirebase(email: email, password: password)
     }
 }
-extension SignInViewController: GoToResetPasswordScreenViewDelegate {
+extension SignInViewController: GoToResetPasswordScreenSignInViewDelegate {
     func goToResetPasswordScreenButtonDidPressed() {
         let vm = ResetPasswordViewModel()
         let vc = ResetPasswordViewController(viewModel: vm)

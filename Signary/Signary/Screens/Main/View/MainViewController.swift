@@ -22,8 +22,30 @@ class MainViewController: UIViewController {
 
         navigationItem.title = "Menu"
 
+        contentView.delegate = self
+
 
     }
 
+}
+extension MainViewController: MainViewDelegate {
+    func openAlphabetButtonDidPressed() {
+        let alphabetVM = AlphabetViewModel()
+        let alphabetVC = AlphabetViewController(viewModel: alphabetVM)
+
+        navigationController?.pushViewController(alphabetVC, animated: true)
+    }
+    
+    func openTranslatorButtonDidPressed() {
+        let translatorVM = TranslatorViewModel()
+        let translatorVC = TranslatorViewController(viewModel: translatorVM)
+
+        navigationController?.pushViewController(translatorVC, animated: true)
+    }
+    
+    func openCameraButtonDidPressed() {
+        
+    }
+    
 
 }
