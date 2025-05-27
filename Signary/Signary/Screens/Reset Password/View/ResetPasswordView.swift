@@ -1,7 +1,7 @@
 
 import UIKit
 
-protocol ResetPasswordButtonViewDelegate: AnyObject {
+protocol ResetPasswordButtonResetPasswordViewDelegate: AnyObject {
     func resetPasswordButtonDidPressed(email: String)
 }
 class ResetPasswordView: UIView {
@@ -47,7 +47,7 @@ class ResetPasswordView: UIView {
         return button
     }()
 
-    weak var resetPasswordDelegate: ResetPasswordButtonViewDelegate?
+    weak var resetPasswordDelegate: ResetPasswordButtonResetPasswordViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

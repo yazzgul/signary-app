@@ -28,7 +28,7 @@ class ResetPasswordViewController: UIViewController {
 
 
 }
-extension ResetPasswordViewController: ResetPasswordButtonViewDelegate {
+extension ResetPasswordViewController: ResetPasswordButtonResetPasswordViewDelegate {
     func resetPasswordButtonDidPressed(email: String) {
         viewModel.resetPasswordWithFirebaseEmail(email: email)
     }

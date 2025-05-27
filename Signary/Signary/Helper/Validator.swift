@@ -27,4 +27,10 @@ class Validator {
             return false
         }
     }
+    static func isValidWordForTranslate(for word: String) -> Bool {
+        let word = word.trimmingCharacters(in: .whitespacesAndNewlines)
+        let wordRegEx = "^[A-Za-z]{1,24}$"
+        let wordPred = NSPredicate(format: "SELF MATCHES %@", wordRegEx)
+        return wordPred.evaluate(with: word)
+    }
 }

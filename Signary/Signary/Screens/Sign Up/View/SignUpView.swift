@@ -1,10 +1,10 @@
 
 import UIKit
 
-protocol SignUpGoToMainScreenViewDelegate: AnyObject {
+protocol SignUpGoToMainScreenSignUpViewDelegate: AnyObject {
     func signUpButtonDidPressed(username: String, email: String, password: String, passwordCheck: String)
 }
-protocol BackToSignInScreenViewDelegate: AnyObject {
+protocol BackToSignInScreenSignUpViewDelegate: AnyObject {
     func backToSignInButtonDidPressed()
 }
 
@@ -116,8 +116,8 @@ class SignUpView: UIView {
         return stackView
     }()
 
-    weak var signUpToMainScreenDelegate: SignUpGoToMainScreenViewDelegate?
-    weak var signInDelegate: BackToSignInScreenViewDelegate?
+    weak var signUpToMainScreenDelegate: SignUpGoToMainScreenSignUpViewDelegate?
+    weak var signInDelegate: BackToSignInScreenSignUpViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

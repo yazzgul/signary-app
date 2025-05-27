@@ -64,6 +64,7 @@ class SignUpViewModel {
                 }
                 if wasRegistered {
                     self.successfulySignUp = true
+                    UserDefaults.standard.setValue(true, forKey: "isLogged")
                 }
             }
 

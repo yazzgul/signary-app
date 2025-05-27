@@ -54,12 +54,12 @@ class SignUpViewController: UIViewController {
     }
 
 }
-extension SignUpViewController: BackToSignInScreenViewDelegate {
+extension SignUpViewController: BackToSignInScreenSignUpViewDelegate {
     func backToSignInButtonDidPressed() {
         navigationController?.popViewController(animated: true)
     }
 }
-extension SignUpViewController: SignUpGoToMainScreenViewDelegate {
+extension SignUpViewController: SignUpGoToMainScreenSignUpViewDelegate {
     func signUpButtonDidPressed(username: String, email: String, password: String, passwordCheck: String) {
         viewModel.signUpWithFirebase(username: username, email: email, password: password, passwordCheck: passwordCheck)
     }
