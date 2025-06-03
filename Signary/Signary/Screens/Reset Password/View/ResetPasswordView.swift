@@ -86,5 +86,8 @@ extension ResetPasswordView {
         ])
     }
 }
-
-
+extension ResetPasswordView {
+    public func setupDelegateForTextFields(viewControllerDelegate: UITextFieldDelegate) {
+        emailTextField.delegate = viewControllerDelegate
+    }
+}

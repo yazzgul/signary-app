@@ -27,6 +27,8 @@ class SignUpViewController: UIViewController {
         contentView.signInDelegate = self
         contentView.signUpToMainScreenDelegate = self
 
+        contentView.setupDelegateForTextFields(viewControllerDelegate: self)
+
         successfulySignUp()
 
     }
@@ -62,5 +64,11 @@ extension SignUpViewController: BackToSignInScreenSignUpViewDelegate {
 extension SignUpViewController: SignUpGoToMainScreenSignUpViewDelegate {
     func signUpButtonDidPressed(username: String, email: String, password: String, passwordCheck: String) {
         viewModel.signUpWithFirebase(username: username, email: email, password: password, passwordCheck: passwordCheck)
+    }
+}
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

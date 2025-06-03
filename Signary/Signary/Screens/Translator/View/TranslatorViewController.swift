@@ -27,6 +27,8 @@ class TranslatorViewController: UIViewController {
 
         contentView.delegate = self
 
+        contentView.setupDelegateForTextFields(viewControllerDelegate: self)
+
         checkTranslateWordUIImage()
 
     }
@@ -47,4 +49,10 @@ extension TranslatorViewController: TranslatorViewDelegate {
         viewModel.translateWordWithUrl(word: word)
     }
 
+}
+extension TranslatorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
