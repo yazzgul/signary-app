@@ -24,6 +24,8 @@ class ResetPasswordViewController: UIViewController {
 
         contentView.resetPasswordDelegate = self
 
+        contentView.setupDelegateForTextFields(viewControllerDelegate: self)
+
     }
 
 
@@ -31,5 +33,11 @@ class ResetPasswordViewController: UIViewController {
 extension ResetPasswordViewController: ResetPasswordButtonResetPasswordViewDelegate {
     func resetPasswordButtonDidPressed(email: String) {
         viewModel.resetPasswordWithFirebaseEmail(email: email)
+    }
+}
+extension ResetPasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

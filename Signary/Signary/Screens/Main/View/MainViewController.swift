@@ -44,7 +44,10 @@ extension MainViewController: MainViewDelegate {
     }
     
     func openCameraButtonDidPressed() {
-        
+        let vm = CameraViewModel()
+        let cameraVC = CameraViewController(viewModel: vm)
+
+        navigationController?.pushViewController(cameraVC, animated: true)
     }
     
 

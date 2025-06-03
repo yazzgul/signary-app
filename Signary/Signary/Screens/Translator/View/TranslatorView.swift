@@ -119,3 +119,8 @@ extension TranslatorView {
     }
 
 }
+extension TranslatorView {
+    public func setupDelegateForTextFields(viewControllerDelegate: UITextFieldDelegate) {
+        translatorTextField.delegate = viewControllerDelegate
+    }
+}

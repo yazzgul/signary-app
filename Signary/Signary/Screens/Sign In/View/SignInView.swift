@@ -181,3 +181,10 @@ extension SignInView {
         ])
     }
 }
+extension SignInView {
+    public func setupDelegateForTextFields(viewControllerDelegate: UITextFieldDelegate) {
+        emailTextField.delegate = viewControllerDelegate
+        passwordTextField.delegate = viewControllerDelegate
+    }
+}
+

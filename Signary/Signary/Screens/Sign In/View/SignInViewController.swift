@@ -27,6 +27,8 @@ class SignInViewController: UIViewController {
         contentView.mainScreenDelegate = self
         contentView.resetPasswordDelegate = self
 
+        contentView.setupDelegateForTextFields(viewControllerDelegate: self)
+
         successfulySignIn()
 
     }
@@ -72,5 +74,11 @@ extension SignInViewController: GoToResetPasswordScreenSignInViewDelegate {
         let vm = ResetPasswordViewModel()
         let vc = ResetPasswordViewController(viewModel: vm)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -57,6 +57,11 @@
 		28F47AB12DB2A882007B6862 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F47AB02DB2A882007B6862 /* SceneDelegate.swift */; };
 		28F47AB82DB2A884007B6862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F47AB72DB2A884007B6862 /* Assets.xcassets */; };
 		28F47ABB2DB2A884007B6862 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 28F47ABA2DB2A884007B6862 /* Base */; };
+		28F76C1D2DEDDEA800C12EB3 /* HandClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C1C2DEDDEA800C12EB3 /* HandClassifier.mlmodel */; };
+		28F76C252DEF36B200C12EB3 /* RemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C242DEF36B200C12EB3 /* RemoteCommand.swift */; };
+		28F76C2A2DEF441800C12EB3 /* VocabularyGamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C292DEF441800C12EB3 /* VocabularyGamingViewController.swift */; };
+		28F76C2C2DEF442400C12EB3 /* VocabularyGamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C2B2DEF442400C12EB3 /* VocabularyGamingView.swift */; };
+		28F76C2E2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C2D2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +113,11 @@
 		28F47AB72DB2A884007B6862 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F47ABA2DB2A884007B6862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28F47ABC2DB2A884007B6862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28F76C1C2DEDDEA800C12EB3 /* HandClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandClassifier.mlmodel; sourceTree = "<group>"; };
+		28F76C242DEF36B200C12EB3 /* RemoteCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommand.swift; sourceTree = "<group>"; };
+		28F76C292DEF441800C12EB3 /* VocabularyGamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyGamingViewController.swift; sourceTree = "<group>"; };
+		28F76C2B2DEF442400C12EB3 /* VocabularyGamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyGamingView.swift; sourceTree = "<group>"; };
+		28F76C2D2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyGamingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +167,7 @@
 				28D3C2062DDF955B00616A44 /* UserRegisterRequest.swift */,
 				28CF1ADF2DE08EF2008EFC35 /* UserLoginRequest.swift */,
 				28A30C852DE4ABA600AF0C54 /* UserInSignary.swift */,
+				28F76C242DEF36B200C12EB3 /* RemoteCommand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 		28E2A6FF2DDDFBCE00D17E84 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				28F76C262DEF43D200C12EB3 /* Vocabulary Gaming */,
 				28E94A102DE5DC2100B37CD6 /* Camera */,
 				28E94A072DE5D6D300B37CD6 /* Translator */,
 				28E949FE2DE5D67800B37CD6 /* Alphabet */,
@@ -443,6 +455,7 @@
 		28F47AAD2DB2A882007B6862 /* Signary */ = {
 			isa = PBXGroup;
 			children = (
+				28F76C1B2DEDDE8D00C12EB3 /* MLModel */,
 				28E94A1B2DE5E3FA00B37CD6 /* Network */,
 				28D3C2052DDF953600616A44 /* Model */,
 				28D3C1FA2DDF6C7800616A44 /* GoogleService-Info.plist */,
@@ -457,6 +470,40 @@
 				28F47ABC2DB2A884007B6862 /* Info.plist */,
 			);
 			path = Signary;
+			sourceTree = "<group>";
+		};
+		28F76C1B2DEDDE8D00C12EB3 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C1C2DEDDEA800C12EB3 /* HandClassifier.mlmodel */,
+			);
+			path = MLModel;
+			sourceTree = "<group>";
+		};
+		28F76C262DEF43D200C12EB3 /* Vocabulary Gaming */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C282DEF43F500C12EB3 /* View */,
+				28F76C272DEF43EE00C12EB3 /* ViewModel */,
+			);
+			path = "Vocabulary Gaming";
+			sourceTree = "<group>";
+		};
+		28F76C272DEF43EE00C12EB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C2D2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		28F76C282DEF43F500C12EB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C292DEF441800C12EB3 /* VocabularyGamingViewController.swift */,
+				28F76C2B2DEF442400C12EB3 /* VocabularyGamingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,15 +611,20 @@
 				28E2A7242DDDFE3700D17E84 /* SignInView.swift in Sources */,
 				28A30C842DE49D3000AF0C54 /* ResetPasswordViewModel.swift in Sources */,
 				28E94A1D2DE5E42300B37CD6 /* EndPoint.swift in Sources */,
+				28F76C2A2DEF441800C12EB3 /* VocabularyGamingViewController.swift in Sources */,
 				28E2A71C2DDDFDFE00D17E84 /* StartViewController.swift in Sources */,
+				28F76C1D2DEDDEA800C12EB3 /* HandClassifier.mlmodel in Sources */,
 				28E2A7282DDDFE5600D17E84 /* SignUpViewController.swift in Sources */,
 				28E2A7062DDDFC2400D17E84 /* MainViewController.swift in Sources */,
 				28E94A022DE5D6A800B37CD6 /* AlphabetView.swift in Sources */,
+				28F76C252DEF36B200C12EB3 /* RemoteCommand.swift in Sources */,
 				28E2A7372DDE159100D17E84 /* +UIFont.swift in Sources */,
 				28E94A042DE5D6B400B37CD6 /* AlphabetViewController.swift in Sources */,
+				28F76C2E2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift in Sources */,
 				28CF1AE02DE08EF2008EFC35 /* UserLoginRequest.swift in Sources */,
 				28E94A0B2DE5D6F100B37CD6 /* TranslatorViewController.swift in Sources */,
 				28E2A72A2DDDFE6300D17E84 /* SignUpView.swift in Sources */,
+				28F76C2C2DEF442400C12EB3 /* VocabularyGamingView.swift in Sources */,
 				28E2A7162DDDFC9A00D17E84 /* ProfileView.swift in Sources */,
 				28E2A7182DDDFD0000D17E84 /* ProfileViewController.swift in Sources */,
 				28A30C882DE4BFD200AF0C54 /* UserService.swift in Sources */,
@@ -728,6 +780,7 @@
 				DEVELOPMENT_TEAM = DBJ2D69UL9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Signary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) Need Camera Access to Scan Your Gesture";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -755,6 +808,7 @@
 				DEVELOPMENT_TEAM = DBJ2D69UL9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Signary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) Need Camera Access to Scan Your Gesture";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
