@@ -62,6 +62,16 @@
 		28F76C2A2DEF441800C12EB3 /* VocabularyGamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C292DEF441800C12EB3 /* VocabularyGamingViewController.swift */; };
 		28F76C2C2DEF442400C12EB3 /* VocabularyGamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C2B2DEF442400C12EB3 /* VocabularyGamingView.swift */; };
 		28F76C2E2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C2D2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift */; };
+		28F76C332DEF63B400C12EB3 /* LearntWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C322DEF63B400C12EB3 /* LearntWordsView.swift */; };
+		28F76C352DEF63C300C12EB3 /* LearntWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C342DEF63C300C12EB3 /* LearntWordsViewController.swift */; };
+		28F76C372DEF63CE00C12EB3 /* LearntWordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C362DEF63CE00C12EB3 /* LearntWordsViewModel.swift */; };
+		28F76C392DEF65E400C12EB3 /* LearntWordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C382DEF65E400C12EB3 /* LearntWordsTableViewCell.swift */; };
+		28F76C3B2DEF821200C12EB3 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C3A2DEF821200C12EB3 /* Word.swift */; };
+		28F76C3D2DF0A63100C12EB3 /* WordListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C3C2DF0A63100C12EB3 /* WordListService.swift */; };
+		28F76C422DF0AD5B00C12EB3 /* LearntWordsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C412DF0AD5B00C12EB3 /* LearntWordsDetailView.swift */; };
+		28F76C442DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C432DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift */; };
+		28F76C462DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */; };
+		28F76C482DF0C09800C12EB3 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +128,16 @@
 		28F76C292DEF441800C12EB3 /* VocabularyGamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyGamingViewController.swift; sourceTree = "<group>"; };
 		28F76C2B2DEF442400C12EB3 /* VocabularyGamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyGamingView.swift; sourceTree = "<group>"; };
 		28F76C2D2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyGamingViewModel.swift; sourceTree = "<group>"; };
+		28F76C322DEF63B400C12EB3 /* LearntWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsView.swift; sourceTree = "<group>"; };
+		28F76C342DEF63C300C12EB3 /* LearntWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsViewController.swift; sourceTree = "<group>"; };
+		28F76C362DEF63CE00C12EB3 /* LearntWordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsViewModel.swift; sourceTree = "<group>"; };
+		28F76C382DEF65E400C12EB3 /* LearntWordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsTableViewCell.swift; sourceTree = "<group>"; };
+		28F76C3A2DEF821200C12EB3 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		28F76C3C2DF0A63100C12EB3 /* WordListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListService.swift; sourceTree = "<group>"; };
+		28F76C412DF0AD5B00C12EB3 /* LearntWordsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsDetailView.swift; sourceTree = "<group>"; };
+		28F76C432DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsDetailViewController.swift; sourceTree = "<group>"; };
+		28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsDetailViewModel.swift; sourceTree = "<group>"; };
+		28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +188,7 @@
 				28CF1ADF2DE08EF2008EFC35 /* UserLoginRequest.swift */,
 				28A30C852DE4ABA600AF0C54 /* UserInSignary.swift */,
 				28F76C242DEF36B200C12EB3 /* RemoteCommand.swift */,
+				28F76C3A2DEF821200C12EB3 /* Word.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +196,9 @@
 		28E2A6FF2DDDFBCE00D17E84 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				28F76C3E2DF0AD1500C12EB3 /* Learnt Words Detail Page */,
+				28F76C2F2DEF637A00C12EB3 /* Learnt Words Page */,
+				28E2A7002DDDFBD500D17E84 /* Main */,
 				28F76C262DEF43D200C12EB3 /* Vocabulary Gaming */,
 				28E94A102DE5DC2100B37CD6 /* Camera */,
 				28E94A072DE5D6D300B37CD6 /* Translator */,
@@ -184,7 +208,6 @@
 				28E2A7032DDDFBF400D17E84 /* Sign In */,
 				28E2A7022DDDFBEB00D17E84 /* Start */,
 				28E2A7012DDDFBE500D17E84 /* Profile */,
-				28E2A7002DDDFBD500D17E84 /* Main */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -335,6 +358,8 @@
 				28E94A192DE5E36C00B37CD6 /* NetworkService.swift */,
 				28E2A7382DDE48EC00D17E84 /* AuthService.swift */,
 				28A30C872DE4BFD200AF0C54 /* UserService.swift */,
+				28F76C3C2DF0A63100C12EB3 /* WordListService.swift */,
+				28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -483,8 +508,8 @@
 		28F76C262DEF43D200C12EB3 /* Vocabulary Gaming */ = {
 			isa = PBXGroup;
 			children = (
-				28F76C282DEF43F500C12EB3 /* View */,
 				28F76C272DEF43EE00C12EB3 /* ViewModel */,
+				28F76C282DEF43F500C12EB3 /* View */,
 			);
 			path = "Vocabulary Gaming";
 			sourceTree = "<group>";
@@ -502,6 +527,59 @@
 			children = (
 				28F76C292DEF441800C12EB3 /* VocabularyGamingViewController.swift */,
 				28F76C2B2DEF442400C12EB3 /* VocabularyGamingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		28F76C2F2DEF637A00C12EB3 /* Learnt Words Page */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C302DEF638A00C12EB3 /* ViewModel */,
+				28F76C312DEF639000C12EB3 /* View */,
+			);
+			path = "Learnt Words Page";
+			sourceTree = "<group>";
+		};
+		28F76C302DEF638A00C12EB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C362DEF63CE00C12EB3 /* LearntWordsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		28F76C312DEF639000C12EB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C342DEF63C300C12EB3 /* LearntWordsViewController.swift */,
+				28F76C322DEF63B400C12EB3 /* LearntWordsView.swift */,
+				28F76C382DEF65E400C12EB3 /* LearntWordsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		28F76C3E2DF0AD1500C12EB3 /* Learnt Words Detail Page */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C3F2DF0AD2700C12EB3 /* ViewModel */,
+				28F76C402DF0AD2F00C12EB3 /* View */,
+			);
+			path = "Learnt Words Detail Page";
+			sourceTree = "<group>";
+		};
+		28F76C3F2DF0AD2700C12EB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		28F76C402DF0AD2F00C12EB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28F76C432DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift */,
+				28F76C412DF0AD5B00C12EB3 /* LearntWordsDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -588,20 +666,24 @@
 			files = (
 				28E2A7202DDDFE1700D17E84 /* StartViewModel.swift in Sources */,
 				28E2A7322DDDFF5100D17E84 /* +URLSession.swift in Sources */,
+				28F76C332DEF63B400C12EB3 /* LearntWordsView.swift in Sources */,
 				28E2A7352DDE019F00D17E84 /* MainTabBarController.swift in Sources */,
 				28A30C822DE49D2A00AF0C54 /* ResetPasswordView.swift in Sources */,
 				28E2A71E2DDDFE0C00D17E84 /* StartView.swift in Sources */,
 				28F47AAF2DB2A882007B6862 /* AppDelegate.swift in Sources */,
+				28F76C422DF0AD5B00C12EB3 /* LearntWordsDetailView.swift in Sources */,
 				28D3C2072DDF955B00616A44 /* UserRegisterRequest.swift in Sources */,
 				28E2A7392DDE48EC00D17E84 /* AuthService.swift in Sources */,
 				28A30C862DE4ABA600AF0C54 /* UserInSignary.swift in Sources */,
 				28E2A72C2DDDFE6E00D17E84 /* SignUpViewModel.swift in Sources */,
 				28E94A1A2DE5E36C00B37CD6 /* NetworkService.swift in Sources */,
+				28F76C352DEF63C300C12EB3 /* LearntWordsViewController.swift in Sources */,
 				28E94A142DE5DC5100B37CD6 /* CameraView.swift in Sources */,
 				28F47AB12DB2A882007B6862 /* SceneDelegate.swift in Sources */,
 				28A30C802DE49D1800AF0C54 /* ResetPasswordViewController.swift in Sources */,
 				28E2A7222DDDFE2B00D17E84 /* SignInViewController.swift in Sources */,
 				28E94A062DE5D6C700B37CD6 /* AlphabetViewModel.swift in Sources */,
+				28F76C372DEF63CE00C12EB3 /* LearntWordsViewModel.swift in Sources */,
 				28E94A0F2DE5D70900B37CD6 /* TranslatorViewModel.swift in Sources */,
 				28E94A0D2DE5D6FF00B37CD6 /* TranslatorView.swift in Sources */,
 				28E2A72F2DDDFEFA00D17E84 /* +UIColor.swift in Sources */,
@@ -612,7 +694,9 @@
 				28A30C842DE49D3000AF0C54 /* ResetPasswordViewModel.swift in Sources */,
 				28E94A1D2DE5E42300B37CD6 /* EndPoint.swift in Sources */,
 				28F76C2A2DEF441800C12EB3 /* VocabularyGamingViewController.swift in Sources */,
+				28F76C392DEF65E400C12EB3 /* LearntWordsTableViewCell.swift in Sources */,
 				28E2A71C2DDDFDFE00D17E84 /* StartViewController.swift in Sources */,
+				28F76C462DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift in Sources */,
 				28F76C1D2DEDDEA800C12EB3 /* HandClassifier.mlmodel in Sources */,
 				28E2A7282DDDFE5600D17E84 /* SignUpViewController.swift in Sources */,
 				28E2A7062DDDFC2400D17E84 /* MainViewController.swift in Sources */,
@@ -621,12 +705,16 @@
 				28E2A7372DDE159100D17E84 /* +UIFont.swift in Sources */,
 				28E94A042DE5D6B400B37CD6 /* AlphabetViewController.swift in Sources */,
 				28F76C2E2DEF442C00C12EB3 /* VocabularyGamingViewModel.swift in Sources */,
+				28F76C3D2DF0A63100C12EB3 /* WordListService.swift in Sources */,
 				28CF1AE02DE08EF2008EFC35 /* UserLoginRequest.swift in Sources */,
 				28E94A0B2DE5D6F100B37CD6 /* TranslatorViewController.swift in Sources */,
 				28E2A72A2DDDFE6300D17E84 /* SignUpView.swift in Sources */,
 				28F76C2C2DEF442400C12EB3 /* VocabularyGamingView.swift in Sources */,
+				28F76C482DF0C09800C12EB3 /* PushNotificationManager.swift in Sources */,
 				28E2A7162DDDFC9A00D17E84 /* ProfileView.swift in Sources */,
 				28E2A7182DDDFD0000D17E84 /* ProfileViewController.swift in Sources */,
+				28F76C442DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift in Sources */,
+				28F76C3B2DEF821200C12EB3 /* Word.swift in Sources */,
 				28A30C882DE4BFD200AF0C54 /* UserService.swift in Sources */,
 				28CF1AE22DE09D58008EFC35 /* Validator.swift in Sources */,
 				28E94A162DE5DC5D00B37CD6 /* CameraViewController.swift in Sources */,
