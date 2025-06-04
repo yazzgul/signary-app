@@ -7,6 +7,9 @@ protocol GoToStartScreenSignOutProfileViewDelegate: AnyObject {
 protocol DeleteProfileViewDelegate: AnyObject {
     func deleteProfileButtonDidPressed()
 }
+protocol OpenLearntWordsListProfileViewDelegate: AnyObject {
+    func learntWordsButtonDidPressed()
+}
 
 
 class ProfileView: UIView {
@@ -77,6 +80,23 @@ class ProfileView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    private lazy var learntWordsListButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("My learnt words", for: .normal)
+        button.setTitleColor(.lightBlue(), for: .normal)
+        button.titleLabel?.font = .subtitleFont
+        button.backgroundColor = .darkBlue()
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 25
+
+        let action = UIAction { [weak self] _ in
+            self?.learntWordsDelegate?.learntWordsButtonDidPressed()
+        }
+
+        button.addAction(action, for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     private lazy var signOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Out", for: .normal)
@@ -112,7 +132,7 @@ class ProfileView: UIView {
         return button
     }()
     private lazy var buttonsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [deleteProfileButton, signOutButton])
+        let stackView = UIStackView(arrangedSubviews: [learntWordsListButton, deleteProfileButton, signOutButton])
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
@@ -123,6 +143,8 @@ class ProfileView: UIView {
 
     weak var signOutDelegate: GoToStartScreenSignOutProfileViewDelegate?
     weak var deleteProfileDelegate: DeleteProfileViewDelegate?
+    weak var learntWordsDelegate: OpenLearntWordsListProfileViewDelegate?
+
 
 
     override init(frame: CGRect) {
@@ -168,6 +190,9 @@ extension ProfileView {
 
             usernameLabel.widthAnchor.constraint(equalToConstant: 150),
             usernameLabel.heightAnchor.constraint(equalToConstant: 50),
+
+            learntWordsListButton.widthAnchor.constraint(equalToConstant: 150),
+            learntWordsListButton.heightAnchor.constraint(equalToConstant: 50),
 
             deleteProfileButton.widthAnchor.constraint(equalToConstant: 150),
             deleteProfileButton.heightAnchor.constraint(equalToConstant: 50),

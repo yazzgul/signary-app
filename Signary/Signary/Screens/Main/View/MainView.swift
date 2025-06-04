@@ -5,6 +5,7 @@ protocol MainViewDelegate: AnyObject {
     func openAlphabetButtonDidPressed()
     func openTranslatorButtonDidPressed()
     func openCameraButtonDidPressed()
+    func openGameButtonDidPressed()
 
 }
 
@@ -15,7 +16,7 @@ class MainView: UIView {
         button.backgroundColor = .darkPurple()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Alphabet", for: .normal)
-        button.layer.cornerRadius = 75
+        button.layer.cornerRadius = 60
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .mainButtonFont
 
@@ -31,7 +32,7 @@ class MainView: UIView {
         button.backgroundColor = .darkPurple()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Translator", for: .normal)
-        button.layer.cornerRadius = 75
+        button.layer.cornerRadius = 60
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .mainButtonFont
 
@@ -47,7 +48,7 @@ class MainView: UIView {
         button.backgroundColor = .darkPurple()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Try with camera", for: .normal)
-        button.layer.cornerRadius = 75
+        button.layer.cornerRadius = 60
         button.setTitleColor(.lightBlue(), for: .normal)
         button.titleLabel?.font = .mainButtonFont
 
@@ -58,9 +59,45 @@ class MainView: UIView {
 
         return button
     }()
+    private lazy var gameButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .darkPurple()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Game", for: .normal)
+        button.layer.cornerRadius = 60
+        button.setTitleColor(.lightBlue(), for: .normal)
+        button.titleLabel?.font = .mainButtonFont
+
+        let action = UIAction { [weak self] _ in
+            self?.delegate?.openGameButtonDidPressed()
+        }
+        button.addAction(action, for: .touchUpInside)
+
+        return button
+    }()
+
+//    private lazy var leftViewsStackView: UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [alphabetButton, dictionaryButton])
+//        stackView.axis = .vertical
+//        stackView.alignment = .fill
+//        stackView.distribution = .equalSpacing
+//        stackView.spacing = 17
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        return stackView
+//    }()
+//
+//    private lazy var rightViewsStackView: UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [gameButton, cameraButton])
+//        stackView.axis = .vertical
+//        stackView.alignment = .fill
+//        stackView.distribution = .equalSpacing
+//        stackView.spacing = 17
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        return stackView
+//    }()
 
     private lazy var viewsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [alphabetButton, dictionaryButton, cameraButton])
+        let stackView = UIStackView(arrangedSubviews: [alphabetButton, dictionaryButton, gameButton, cameraButton])
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
@@ -91,14 +128,17 @@ extension MainView {
             viewsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             viewsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            alphabetButton.widthAnchor.constraint(equalToConstant: 150),
-            alphabetButton.heightAnchor.constraint(equalToConstant: 150),
+            alphabetButton.widthAnchor.constraint(equalToConstant: 120),
+            alphabetButton.heightAnchor.constraint(equalToConstant: 120),
 
-            dictionaryButton.widthAnchor.constraint(equalToConstant: 150),
-            dictionaryButton.heightAnchor.constraint(equalToConstant: 150),
+            dictionaryButton.widthAnchor.constraint(equalToConstant: 120),
+            dictionaryButton.heightAnchor.constraint(equalToConstant: 120),
 
-            cameraButton.widthAnchor.constraint(equalToConstant: 150),
-            cameraButton.heightAnchor.constraint(equalToConstant: 150),
+            cameraButton.widthAnchor.constraint(equalToConstant: 120),
+            cameraButton.heightAnchor.constraint(equalToConstant: 120),
+
+            gameButton.widthAnchor.constraint(equalToConstant: 120),
+            gameButton.heightAnchor.constraint(equalToConstant: 120),
 
         ])
 

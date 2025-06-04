@@ -24,7 +24,6 @@ class MainViewController: UIViewController {
 
         contentView.delegate = self
 
-
     }
 
 }
@@ -49,6 +48,13 @@ extension MainViewController: MainViewDelegate {
 
         navigationController?.pushViewController(cameraVC, animated: true)
     }
-    
+
+    func openGameButtonDidPressed() {
+        let gameVM = VocabularyGamingViewModel()
+        let gameVC = VocabularyGamingViewController(viewModel: gameVM)
+
+        navigationController?.pushViewController(gameVC, animated: true)
+    }
+
 
 }

@@ -9,7 +9,7 @@ class UserService {
 
     @Published var currentUser: UserInSignary?
 
-    func getUserFromDatabase() {
+    public func getUserFromDatabase() {
         AuthService.shared.fetchUser { [weak self] user, error in
             if let error = error {
                 print("Error in UserService: \(error.localizedDescription)")
@@ -31,6 +31,20 @@ class UserService {
     }
     func getCurrentUser() -> UserInSignary? {
         return currentUser
+    }
+
+    func getCurrentUserLearntWords() -> [String]? {
+        return currentUser?.learntWords
+    }
+
+    func setNewLearntWordsList(_ words: [String]) {
+        currentUser?.learntWords = words
+    }
+    func addNewLearntWordToUserList(_ word: String) {
+        currentUser?.learntWords.append(word)
+    }
+    func updateCurrentLocalUser(_ user: UserInSignary) {
+        currentUser = user
     }
 
 

@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
 
         contentView.signOutDelegate = self
         contentView.deleteProfileDelegate = self
+        contentView.learntWordsDelegate = self
 
     }
 
@@ -98,6 +99,13 @@ extension ProfileViewController: DeleteProfileViewDelegate {
             }
         }
     }
-    
+}
+extension ProfileViewController: OpenLearntWordsListProfileViewDelegate {
+    func learntWordsButtonDidPressed() {
+        let vm = LearntWordsViewModel()
+        let vc = LearntWordsViewController(viewModel: vm)
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
