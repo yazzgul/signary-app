@@ -7,7 +7,7 @@ class SignInViewController: UIViewController {
     private var contentView: SignInView = .init()
     private let viewModel: SignInViewModel
 
-    private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
 
     init(viewModel: SignInViewModel) {
         self.viewModel = viewModel
@@ -31,16 +31,20 @@ class SignInViewController: UIViewController {
 
         successfulySignIn()
 
+        showEmailInvalidAlert()
+        showSomethingWentWrongAlert()
+
     }
     func successfulySignIn() {
-        cancellable = viewModel.$successfulySignIn
+        viewModel.$successfulySignIn
             .sink { [weak self] userSuccessfulySignIn in
                 if userSuccessfulySignIn {
                     self?.goToMainScreen()
                 } else {
-                    print("Что то пошло не так! Не удалось войти.")
+                    print("Что-то пошло не так! Не удалось войти.")
                 }
             }
+            .store(in: &cancellables)
     }
     func goToMainScreen() {
         let tabBarController = MainTabBarController()
@@ -80,5 +84,30 @@ extension SignInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+extension SignInViewController {
+    func showEmailInvalidAlert() {
+        viewModel.$showInvalidEmailAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showInvalidEmailAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert showInvalidEmailAlert.")
+                }
+            }
+            .store(in: &cancellables)
+    }
+    func showSomethingWentWrongAlert() {
+        viewModel.$showSomethingWentWrongAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSomethingWentWrongAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
     }
 }

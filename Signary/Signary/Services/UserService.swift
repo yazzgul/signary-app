@@ -23,27 +23,27 @@ class UserService {
         }
     }
 
-    func getCurrentUserUsername() -> String? {
+    public func getCurrentUserUsername() -> String? {
         return currentUser?.username
     }
-    func getCurrentUserEmail() -> String? {
+    public func getCurrentUserEmail() -> String? {
         return currentUser?.email
     }
-    func getCurrentUser() -> UserInSignary? {
+    public func getCurrentUser() -> UserInSignary? {
         return currentUser
     }
 
-    func getCurrentUserLearntWords() -> [String]? {
+    public func getCurrentUserLearntWords() -> [String]? {
         return currentUser?.learntWords
     }
 
-    func setNewLearntWordsList(_ words: [String]) {
+    public func setNewLearntWordsList(_ words: [String]) {
         currentUser?.learntWords = words
     }
-    func addNewLearntWordToUserList(_ word: String) {
+    public func addNewLearntWordToUserList(_ word: String) {
         currentUser?.learntWords.append(word)
     }
-    func updateCurrentLocalUser(_ user: UserInSignary) {
+    public func updateCurrentLocalUser(_ user: UserInSignary) {
         currentUser = user
     }
 

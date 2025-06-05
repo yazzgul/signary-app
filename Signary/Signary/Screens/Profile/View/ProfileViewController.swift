@@ -30,9 +30,15 @@ class ProfileViewController: UIViewController {
 
         navigationItem.title = "Profile"
 
+        viewModel.loadUser()
+
         contentView.signOutDelegate = self
         contentView.deleteProfileDelegate = self
         contentView.learntWordsDelegate = self
+
+
+        showSomethingWentWrongAlert()
+        showSuccessProfileDeletingAlert()
 
     }
 
@@ -75,18 +81,6 @@ extension ProfileViewController: GoToStartScreenSignOutProfileViewDelegate {
         viewModel.signOutFromProfile()
 
         goToStartScreen()
-//        let startVM = StartViewModel()
-//        let startVC = StartViewController(viewModel: startVM)
-//
-//        let navController = UINavigationController(rootViewController: startVC)
-//
-//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//           let sceneDelegate = windowScene.delegate as? SceneDelegate,
-//           let window = sceneDelegate.window {
-//
-//            window.rootViewController = navController
-//            window.makeKeyAndVisible()
-//        }
     }
 }
 extension ProfileViewController: DeleteProfileViewDelegate {
@@ -108,4 +102,30 @@ extension ProfileViewController: OpenLearntWordsListProfileViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 
+}
+extension ProfileViewController {
+    func showSomethingWentWrongAlert() {
+        viewModel.$showSomethingWentWrongAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSomethingWentWrongAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showSuccessProfileDeletingAlert() {
+        viewModel.$showSuccessProfileDeletingAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSuccessProfileDeletingAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
 }

@@ -4,11 +4,10 @@ import Combine
 
 class ProfileViewModel {
 
-//    UserDefaults.standard.bool(forKey: "isLogged")
-//    userDefaults.removeObject(forKey: "isLogged")
-//    userDefaults.setValue(true, forKey: "isLogged")
+    @Published var showSomethingWentWrongAlert = false
+    @Published var showSuccessProfileDeletingAlert = false
 
-    init() {
+    func loadUser() {
         UserService.shared.getUserFromDatabase()
     }
 
@@ -25,10 +24,11 @@ class ProfileViewModel {
     }
 
     func signOutFromProfile() {
-        AuthService.shared.signOut { successInOut, error in
+        AuthService.shared.signOut { [weak self] successInOut, error in
             if let error = error {
                 print("Error in ProfileViewModel: \(error.localizedDescription)")
 //                alert
+                self?.showSomethingWentWrongAlert = true
                 return
             }
             if successInOut {
@@ -38,14 +38,16 @@ class ProfileViewModel {
         }
     }
     func deleteProfile(completion: @escaping (Bool, Error?) -> Void) {
-        AuthService.shared.deleteUser { error in
+        AuthService.shared.deleteUser { [weak self] error in
             if let error = error {
                 print("Error in ProfileViewModel: \(error.localizedDescription)")
 //                alert
                 completion(false, error)
+                self?.showSomethingWentWrongAlert = true
             } else {
                 completion(true, nil)
                 UserDefaults.standard.removeObject(forKey: "isLogged")
+                self?.showSuccessProfileDeletingAlert = true
             }
         }
     }

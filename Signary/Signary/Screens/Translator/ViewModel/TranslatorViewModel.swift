@@ -4,6 +4,9 @@ import Combine
 
 class TranslatorViewModel {
 
+    @Published var showInvalidWordAlert = false
+    @Published var showSomethingWentWrongAlert = false
+
     @Published var translateWordUIImagePublished: UIImage? = nil
 
 
@@ -11,6 +14,7 @@ class TranslatorViewModel {
 
         if !Validator.isValidWordForTranslate(for: word) {
 //            alert
+            showInvalidWordAlert = true
             return
         }
         Task {
@@ -24,6 +28,7 @@ class TranslatorViewModel {
             } catch {
                 print("Error in TranslatorViewModel translateWordWithUrl: ", error.localizedDescription)
 //                alert
+                showSomethingWentWrongAlert = true
             }
         }
     }

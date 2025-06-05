@@ -72,6 +72,7 @@
 		28F76C442DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C432DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift */; };
 		28F76C462DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */; };
 		28F76C482DF0C09800C12EB3 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */; };
+		28F76C4B2DF1B10D00C12EB3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C4A2DF1B10D00C12EB3 /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsDetailViewModel.swift; sourceTree = "<group>"; };
 		28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		28F76C492DF0C8AD00C12EB3 /* AlertPushNotifications.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = AlertPushNotifications.apns; sourceTree = "<group>"; };
+		28F76C4A2DF1B10D00C12EB3 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 				28A30C872DE4BFD200AF0C54 /* UserService.swift */,
 				28F76C3C2DF0A63100C12EB3 /* WordListService.swift */,
 				28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */,
+				28F76C4A2DF1B10D00C12EB3 /* AlertManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				28F76C1D2DEDDEA800C12EB3 /* HandClassifier.mlmodel in Sources */,
 				28E2A7282DDDFE5600D17E84 /* SignUpViewController.swift in Sources */,
 				28E2A7062DDDFC2400D17E84 /* MainViewController.swift in Sources */,
+				28F76C4B2DF1B10D00C12EB3 /* AlertManager.swift in Sources */,
 				28E94A022DE5D6A800B37CD6 /* AlphabetView.swift in Sources */,
 				28F76C252DEF36B200C12EB3 /* RemoteCommand.swift in Sources */,
 				28E2A7372DDE159100D17E84 /* +UIFont.swift in Sources */,

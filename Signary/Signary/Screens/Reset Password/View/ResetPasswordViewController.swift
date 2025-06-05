@@ -7,7 +7,7 @@ class ResetPasswordViewController: UIViewController {
     private var contentView: ResetPasswordView = .init()
     private let viewModel: ResetPasswordViewModel
 
-    private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
 
     init(viewModel: ResetPasswordViewModel) {
         self.viewModel = viewModel
@@ -26,8 +26,11 @@ class ResetPasswordViewController: UIViewController {
 
         contentView.setupDelegateForTextFields(viewControllerDelegate: self)
 
-    }
+        showInvalidEmailAlert()
+        showSomethingWentWrongAlert()
+        showCheckEmailAlert()
 
+    }
 
 }
 extension ResetPasswordViewController: ResetPasswordButtonResetPasswordViewDelegate {
@@ -39,5 +42,43 @@ extension ResetPasswordViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+extension ResetPasswordViewController {
+    func showSomethingWentWrongAlert() {
+        viewModel.$showSomethingWentWrongAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSomethingWentWrongAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showInvalidEmailAlert() {
+        viewModel.$showInvalidEmailAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showInvalidEmailAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showCheckEmailAlert() {
+        viewModel.$showCheckEmailAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSendLetterToEmailPasswordResetAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
     }
 }
