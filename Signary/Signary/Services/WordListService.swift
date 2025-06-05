@@ -17,18 +17,18 @@ class WordListService {
         Word(id: 5, name: "Sorry", signImages: UIImage(named: "sorry")!)
     ]
 
-    func getWords() -> [Word] {
+    public func getWords() -> [Word] {
         return words
     }
-    func addWordToArray(_ word: Word) {
+    public func addWordToArray(_ word: Word) {
         words.append(word)
     }
-    func setupNewArray(_ array: [Word]) {
+    public func setupNewArray(_ array: [Word]) {
         words = array
     }
 
     /// фильтрация для получения неизвестных слов
-    func filterUnlearntWords(from allWords: [Word], learntWords: [String]) -> [Word] {
+    public func filterUnlearntWords(from allWords: [Word], learntWords: [String]) -> [Word] {
         let learntSet = Set(learntWords.map { $0.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) })
         return allWords.filter {
             let wordName = $0.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
@@ -36,7 +36,7 @@ class WordListService {
         }
     }
 
-    func getFullSelectedWord() -> Word? {
+    public  func getFullSelectedWord() -> Word? {
         if let word = words.first(where: { $0.name == selectedLearntWord }) {
             return word
         }

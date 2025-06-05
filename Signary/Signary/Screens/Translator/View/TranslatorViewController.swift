@@ -31,6 +31,9 @@ class TranslatorViewController: UIViewController {
 
         checkTranslateWordUIImage()
 
+        showInvalidWordAlert()
+        showSomethingWentWrongAlert()
+
     }
     func checkTranslateWordUIImage() {
         viewModel.$translateWordUIImagePublished
@@ -54,5 +57,31 @@ extension TranslatorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+extension TranslatorViewController {
+    func showSomethingWentWrongAlert() {
+        viewModel.$showSomethingWentWrongAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSomethingWentWrongAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showInvalidWordAlert() {
+        viewModel.$showInvalidWordAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showInvalidTranslatedWordAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
     }
 }

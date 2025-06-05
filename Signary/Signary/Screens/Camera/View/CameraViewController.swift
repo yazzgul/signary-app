@@ -67,8 +67,6 @@ extension CameraViewController {
             .sink { [weak self] command in
                 if let command = command {
                     self?.setupCommandCaption(command: command)
-//                    let caption = self?.viewModel.getCommand(command)
-//                    self?.contentView.configureView(with: caption!)
                 }
             }
             .store(in: &cancellables)
@@ -124,11 +122,16 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 
     func beginSession() {
+        if captureDevice == nil {
+            AlertManager.showNotFoundCameraAlert(on: self)
+            return
+        }
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(captureDeviceInput)
         } catch {
             print("Couldn`t create video device input")
+            AlertManager.showCannotCameraAccessAlert(on: self)
             return
         }
         captureSession.beginConfiguration()

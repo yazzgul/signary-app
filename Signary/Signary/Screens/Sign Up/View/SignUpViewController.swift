@@ -7,7 +7,7 @@ class SignUpViewController: UIViewController {
     private var contentView: SignUpView = .init()
     private let viewModel: SignUpViewModel
 
-    private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
 
     init(viewModel: SignUpViewModel) {
         self.viewModel = viewModel
@@ -31,9 +31,15 @@ class SignUpViewController: UIViewController {
 
         successfulySignUp()
 
+        showSomethingWentWrongAlert()
+        showInvalidEmailAlert()
+        showInvalidUsernameAlert()
+        showInvalidPasswordAlert()
+        showNotEqualPasswordsAlert()
+
     }
     func successfulySignUp() {
-        cancellable = viewModel.$successfulySignUp
+        viewModel.$successfulySignUp
             .sink { [weak self] userSuccessfulySignUp in
                 if userSuccessfulySignUp {
                     self?.goToMainScreen()
@@ -41,6 +47,7 @@ class SignUpViewController: UIViewController {
                     print("Что то пошло не так! Не удалось зарегистрироваться.")
                 }
             }
+            .store(in: &cancellables)
     }
     func goToMainScreen() {
         let tabBarController = MainTabBarController()
@@ -70,5 +77,67 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+extension SignUpViewController {
+    func showSomethingWentWrongAlert() {
+        viewModel.$showSomethingWentWrongAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showSomethingWentWrongAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showInvalidEmailAlert() {
+        viewModel.$showInvalidEmailAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showInvalidEmailAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showInvalidUsernameAlert() {
+        viewModel.$showInvalidUsernameAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showInvalidUsernameAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showInvalidPasswordAlert() {
+        viewModel.$showInvalidPasswordAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showInvalidPasswordAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
+    }
+    func showNotEqualPasswordsAlert() {
+        viewModel.$showNotEqualPasswordsAlert
+            .sink { [weak self] bool in
+                if bool {
+                    AlertManager.showNotEqualPasswordsAlert(on: self!)
+                } else {
+                    print("Что-то пошло не так! Не удалось показать Alert.")
+                }
+                print(bool)
+            }
+            .store(in: &cancellables)
     }
 }

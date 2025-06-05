@@ -35,7 +35,7 @@ class VocabularyGamingView: UIView {
         label.numberOfLines = 1
         label.font = .subtitleFont
         label.textColor = .darkPurple()
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
