@@ -1,0 +1,8 @@
+{
+    "Simulator Target Bundle": "yazzgul.Signary",
+    "aps": {
+        "alert": "Let`s go to learn Sign Language",
+        "sound": "default",
+        "badge": 1,
+    },
+}

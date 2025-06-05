@@ -138,6 +138,7 @@
 		28F76C432DF0AD6900C12EB3 /* LearntWordsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsDetailViewController.swift; sourceTree = "<group>"; };
 		28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearntWordsDetailViewModel.swift; sourceTree = "<group>"; };
 		28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		28F76C492DF0C8AD00C12EB3 /* AlertPushNotifications.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = AlertPushNotifications.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +490,7 @@
 				28E2A72D2DDDFEE800D17E84 /* Extensions */,
 				28E2A6FF2DDDFBCE00D17E84 /* Screens */,
 				28F47AAE2DB2A882007B6862 /* AppDelegate.swift */,
+				28F76C492DF0C8AD00C12EB3 /* AlertPushNotifications.apns */,
 				28F47AB02DB2A882007B6862 /* SceneDelegate.swift */,
 				28F47AB72DB2A884007B6862 /* Assets.xcassets */,
 				28F47AB92DB2A884007B6862 /* LaunchScreen.storyboard */,
