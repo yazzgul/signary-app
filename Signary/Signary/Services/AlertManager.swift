@@ -49,10 +49,10 @@ extension AlertManager {
         self.showBasicAlert(on: viewController, title: "Profile Deleted", message: "Your profile was deleted successfully.")
     }
     public static func showNotFoundCameraAlert(on viewController: UIViewController) {
-        self.showBasicAlert(on: viewController, title: "Error", message: "Camera not available.")
+        self.showBasicAlert(on: viewController, title: "Error", message: "Camera is not available.")
     }
     public static func showCannotCameraAccessAlert(on viewController: UIViewController) {
-        self.showBasicAlert(on: viewController, title: "Camera access denied", message: "Please allow access to the camera.")
+        self.showBasicAlert(on: viewController, title: "Camera access was denied", message: "Please allow access to the camera.")
     }
 
 }

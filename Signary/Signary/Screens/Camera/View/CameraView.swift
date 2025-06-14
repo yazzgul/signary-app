@@ -16,7 +16,7 @@ class CameraView: UIView {
         return label
     }()
 
-    var previewLayer: AVCaptureVideoPreviewLayer?
+    public var previewLayer: AVCaptureVideoPreviewLayer?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,7 +41,7 @@ extension CameraView {
             wordLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             wordLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             
-            wordLabel.widthAnchor.constraint(equalToConstant: 400),
+            wordLabel.widthAnchor.constraint(equalToConstant: 370),
             wordLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -52,7 +52,7 @@ extension CameraView {
         self.previewLayer = layer
         layer.videoGravity = .resizeAspectFill
         layer.frame = bounds
-        layer.zPosition = -1 // чтобы быть под метками/элементами UI
+        layer.zPosition = -1
         self.layer.insertSublayer(layer, at: 0)
     }
 }

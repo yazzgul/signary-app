@@ -22,7 +22,10 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
 
         view = contentView
+        
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
         navigationItem.hidesBackButton = true
+
         contentView.signUpDelegate = self
         contentView.mainScreenDelegate = self
         contentView.resetPasswordDelegate = self
@@ -92,8 +95,6 @@ extension SignInViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showInvalidEmailAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert showInvalidEmailAlert.")
                 }
             }
             .store(in: &cancellables)
@@ -103,10 +104,7 @@ extension SignInViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSomethingWentWrongAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }

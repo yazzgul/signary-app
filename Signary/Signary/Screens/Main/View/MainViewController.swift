@@ -20,9 +20,11 @@ class MainViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Menu"
-
         contentView.delegate = self
+
+        viewModel.loadUser()
+
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
     }
 

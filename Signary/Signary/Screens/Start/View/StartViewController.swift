@@ -19,6 +19,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
 
         view = contentView
+
         contentView.delegate = self
 
     }

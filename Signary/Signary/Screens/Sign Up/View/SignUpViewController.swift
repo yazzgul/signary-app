@@ -23,7 +23,9 @@ class SignUpViewController: UIViewController {
 
         view = contentView
 
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
         navigationItem.hidesBackButton = true
+        
         contentView.signInDelegate = self
         contentView.signUpToMainScreenDelegate = self
 
@@ -85,8 +87,6 @@ extension SignUpViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSomethingWentWrongAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
                 }
                 print(bool)
             }
@@ -97,8 +97,6 @@ extension SignUpViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showInvalidEmailAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
                 print(bool)
             }
@@ -109,8 +107,6 @@ extension SignUpViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showInvalidUsernameAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
                 print(bool)
             }
@@ -121,8 +117,6 @@ extension SignUpViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showInvalidPasswordAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
                 print(bool)
             }
@@ -133,8 +127,6 @@ extension SignUpViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showNotEqualPasswordsAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
                 print(bool)
             }

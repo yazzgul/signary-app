@@ -73,6 +73,7 @@
 		28F76C462DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C452DF0AD7300C12EB3 /* LearntWordsDetailViewModel.swift */; };
 		28F76C482DF0C09800C12EB3 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */; };
 		28F76C4B2DF1B10D00C12EB3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C4A2DF1B10D00C12EB3 /* AlertManager.swift */; };
+		28F76C4D2DF1D63C00C12EB3 /* NavigationBarAppearanceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F76C4C2DF1D63C00C12EB3 /* NavigationBarAppearanceConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +142,7 @@
 		28F76C472DF0C09800C12EB3 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		28F76C492DF0C8AD00C12EB3 /* AlertPushNotifications.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = AlertPushNotifications.apns; sourceTree = "<group>"; };
 		28F76C4A2DF1B10D00C12EB3 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		28F76C4C2DF1D63C00C12EB3 /* NavigationBarAppearanceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearanceConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,8 +282,8 @@
 		28E2A70D2DDDFC6100D17E84 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				28E2A7152DDDFC9A00D17E84 /* ProfileView.swift */,
 				28E2A7172DDDFD0000D17E84 /* ProfileViewController.swift */,
+				28E2A7152DDDFC9A00D17E84 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +375,7 @@
 			children = (
 				28E2A7342DDE019F00D17E84 /* MainTabBarController.swift */,
 				28CF1AE12DE09D58008EFC35 /* Validator.swift */,
+				28F76C4C2DF1D63C00C12EB3 /* NavigationBarAppearanceConfiguration.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				28E2A7352DDE019F00D17E84 /* MainTabBarController.swift in Sources */,
 				28A30C822DE49D2A00AF0C54 /* ResetPasswordView.swift in Sources */,
 				28E2A71E2DDDFE0C00D17E84 /* StartView.swift in Sources */,
+				28F76C4D2DF1D63C00C12EB3 /* NavigationBarAppearanceConfiguration.swift in Sources */,
 				28F47AAF2DB2A882007B6862 /* AppDelegate.swift in Sources */,
 				28F76C422DF0AD5B00C12EB3 /* LearntWordsDetailView.swift in Sources */,
 				28D3C2072DDF955B00616A44 /* UserRegisterRequest.swift in Sources */,

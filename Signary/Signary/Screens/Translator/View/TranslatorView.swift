@@ -6,26 +6,43 @@ protocol TranslatorViewDelegate: AnyObject {
 }
 
 class TranslatorView: UIView {
+    private var imageAspectRatioConstraint: NSLayoutConstraint?
 
-//    добавить изменение размера изображения от разрешения
     private lazy var translateWordImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "type-any-word")
+//        imageView.image = UIImage(named: "type-any-word")
         imageView.contentMode = .scaleAspectFill
+
+
         imageView.layer.borderWidth = 5
-        imageView.layer.borderColor = UIColor.delicateBlue().cgColor
+        imageView.layer.borderColor = UIColor.darkPurple(alpha: 0.5).cgColor
+
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private lazy var translatorTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Any Word"
-        textField.backgroundColor = .delicateBlue()
-        textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+        textField.backgroundColor = .darkPurple(alpha: 0.9)
+        textField.textColor = .lightBlue()
+
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Any Word",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -35,7 +52,7 @@ class TranslatorView: UIView {
         let button = UIButton(type: .system)
         let image = UIImage(systemName: "magnifyingglass")
         button.setImage(image, for: .normal)
-        button.tintColor = .darkBlue()
+        button.tintColor = .darkPurple()
         button.clipsToBounds = true
 //        button.layer.cornerRadius = 25
 
@@ -93,10 +110,8 @@ extension TranslatorView {
             translateWordImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             translateWordImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            translateWordImageView.widthAnchor.constraint(equalToConstant: 350),
-            translateWordImageView.heightAnchor.constraint(equalToConstant: 200),
+            translateWordImageView.widthAnchor.constraint(equalToConstant: 370),
 
-//            searchItemsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             searchItemsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             searchItemsStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
 
@@ -116,6 +131,16 @@ extension TranslatorView {
 
     public func configureView(with image: UIImage) {
         translateWordImageView.image = image
+
+        if let existingConstraint = imageAspectRatioConstraint {
+            translateWordImageView.removeConstraint(existingConstraint)
+        }
+
+        let aspectRatio = image.size.height / image.size.width
+
+        let newConstraint = translateWordImageView.heightAnchor.constraint(equalTo: translateWordImageView.widthAnchor, multiplier: aspectRatio)
+        newConstraint.isActive = true
+        imageAspectRatioConstraint = newConstraint
     }
 
 }

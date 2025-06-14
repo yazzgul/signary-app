@@ -22,6 +22,8 @@ class ResetPasswordViewController: UIViewController {
         super.viewDidLoad()
         view = contentView
 
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
+
         contentView.resetPasswordDelegate = self
 
         contentView.setupDelegateForTextFields(viewControllerDelegate: self)
@@ -50,10 +52,7 @@ extension ResetPasswordViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSomethingWentWrongAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }
@@ -62,10 +61,7 @@ extension ResetPasswordViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showInvalidEmailAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }
@@ -74,10 +70,7 @@ extension ResetPasswordViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSendLetterToEmailPasswordResetAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }

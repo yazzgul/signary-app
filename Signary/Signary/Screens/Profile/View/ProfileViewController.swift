@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Profile"
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
-        viewModel.loadUser()
+//        viewModel.loadUser()
 
         contentView.signOutDelegate = self
         contentView.deleteProfileDelegate = self
@@ -46,19 +46,11 @@ class ProfileViewController: UIViewController {
         viewModel.currentUserPublisher
             .sink { [weak self] user in
                 if let user = user {
-                    self?.contentView.configureView(email: user.email, username: user.username)
+                    self?.contentView.configureView(username: user.username)
                 }
             }
             .store(in: &cancellables)
     }
-
-//    func setupUserDataInProfile() {
-//        
-//        let email = viewModel.getUserEmail()
-//        let username = viewModel.getUserUsername()
-//
-//        contentView.configureView(email: email, username: username)
-//    }
 
     func goToStartScreen() {
         let startVM = StartViewModel()
@@ -109,10 +101,7 @@ extension ProfileViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSomethingWentWrongAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }
@@ -121,10 +110,7 @@ extension ProfileViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSuccessProfileDeletingAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }

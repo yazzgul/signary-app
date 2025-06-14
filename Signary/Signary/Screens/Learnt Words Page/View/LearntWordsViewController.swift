@@ -37,7 +37,7 @@ class LearntWordsViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Learnt Words"
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
         contentView.setupDataSource(self)
         contentView.setupDelegate(self)

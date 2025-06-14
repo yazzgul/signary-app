@@ -22,57 +22,111 @@ class SignUpView: UIView {
     }()
     private lazy var usernameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Your Username (agent007, ...)"
-        textField.backgroundColor = .darkBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Your Username (agent007, ...)",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
+//        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Email"
-        textField.backgroundColor = .darkBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Email",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Password"
-        textField.backgroundColor = .darkBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Password",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
-        textField.autocapitalizationType = .none
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.isSecureTextEntry = true
+
+        textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     private lazy var passwordCheckTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Password Again"
-        textField.backgroundColor = .darkBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Password Again",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
-        textField.autocapitalizationType = .none
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.isSecureTextEntry = true
+
+        textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     private lazy var signUpToMainScreenButton: UIButton = {
-//        let button = UIButton()
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .subtitleFont
-        button.backgroundColor = .darkBlue()
+        button.titleLabel?.font = .mainButtonFont
+        button.backgroundColor = .darkPurple()
         button.clipsToBounds = true
         button.layer.cornerRadius = 25
 
@@ -109,7 +163,7 @@ class SignUpView: UIView {
     private lazy var loginTextFieldsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [usernameTextField, emailTextField, passwordTextField, passwordCheckTextField])
         stackView.axis = .vertical
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -139,9 +193,6 @@ extension SignUpView {
 
         NSLayoutConstraint.activate([
 
-//            loginTextFieldsStackView.topAnchor.constraint(equalTo: captionLabel.bottomAnchor, constant: 20),
-//            loginTextFieldsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-
             loginTextFieldsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             loginTextFieldsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
 
@@ -168,7 +219,7 @@ extension SignUpView {
             backToSignInScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             signUpToMainScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            signUpToMainScreenButton.widthAnchor.constraint(equalToConstant: 150),
+            signUpToMainScreenButton.widthAnchor.constraint(equalToConstant: 250),
             signUpToMainScreenButton.heightAnchor.constraint(equalToConstant: 50),
             signUpToMainScreenButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
 

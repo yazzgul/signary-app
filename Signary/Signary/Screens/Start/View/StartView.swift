@@ -6,6 +6,22 @@ protocol NextScreenStartViewDelegate: AnyObject {
 }
 
 class StartView: UIView {
+    
+    private lazy var icontImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "hand.raised")
+        imageView.tintColor = UIColor.darkPurple()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+//
+//        imageView.layer.borderWidth = 5
+//        imageView.layer.borderColor = UIColor.delicateBlue().cgColor
+//        imageView.clipsToBounds = true
+
+        return imageView
+    }()
+
     private lazy var appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Signary"
@@ -17,14 +33,14 @@ class StartView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private lazy var captionLabel: UILabel = {
         let label = UILabel()
         label.text = "Explore the sign language world!"
         label.numberOfLines = .zero
-        label.font = .subtitleFont
-//        label.font = .systemFont(ofSize: 17, weight: .regular)
+        label.font = .subtitleSmallFont
         label.textColor = .darkBlue()
-        label.textAlignment = .justified
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,8 +50,8 @@ class StartView: UIView {
 
         button.setTitle("Start", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .subtitleFont
-        button.backgroundColor = .darkBlue()
+        button.titleLabel?.font = .mainButtonFont
+        button.backgroundColor = .darkPurple()
         button.clipsToBounds = true
         button.layer.cornerRadius = 25
 
@@ -47,10 +63,19 @@ class StartView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    private lazy var iconAppNameStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [icontImageView, appNameLabel])
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     private lazy var appNameCaptionLabelsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [appNameLabel, captionLabel])
+        let stackView = UIStackView(arrangedSubviews: [iconAppNameStackView, captionLabel])
         stackView.axis = .vertical
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -71,17 +96,25 @@ class StartView: UIView {
 }
 extension StartView {
     private func configureView() {
-        addSubview(appNameLabel)
-        addSubview(captionLabel)
         addSubview(nextButton)
         addSubview(appNameCaptionLabelsStackView)
 
         NSLayoutConstraint.activate([
+
+            appNameLabel.widthAnchor.constraint(equalToConstant: 150),
+            appNameLabel.heightAnchor.constraint(equalToConstant: 80),
+
+            icontImageView.widthAnchor.constraint(equalToConstant: 60),
+            icontImageView.heightAnchor.constraint(equalToConstant: 60),
+
+            captionLabel.widthAnchor.constraint(equalToConstant: 250),
+            captionLabel.heightAnchor.constraint(equalToConstant: 30),
+
             appNameCaptionLabelsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            appNameCaptionLabelsStackView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 10),
+            appNameCaptionLabelsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
 
             nextButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nextButton.widthAnchor.constraint(equalToConstant: 150),
+            nextButton.widthAnchor.constraint(equalToConstant: 250),
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             nextButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
 
