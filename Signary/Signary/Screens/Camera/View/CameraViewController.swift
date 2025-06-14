@@ -39,7 +39,7 @@ class CameraViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Camera"
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
         setupVision()
 

@@ -17,11 +17,24 @@ class ResetPasswordView: UIView {
     }()
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Your Email"
-        textField.backgroundColor = .darkBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Your Email",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -31,8 +44,8 @@ class ResetPasswordView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Reset", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .subtitleFont
-        button.backgroundColor = .darkBlue()
+        button.titleLabel?.font = .mainButtonFont
+        button.backgroundColor = .darkPurple()
         button.clipsToBounds = true
         button.layer.cornerRadius = 25
 
@@ -79,7 +92,7 @@ extension ResetPasswordView {
             captionLabel.heightAnchor.constraint(equalToConstant: 50),
 
             resetPasswordButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            resetPasswordButton.widthAnchor.constraint(equalToConstant: 150),
+            resetPasswordButton.widthAnchor.constraint(equalToConstant: 250),
             resetPasswordButton.heightAnchor.constraint(equalToConstant: 50),
             resetPasswordButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
 

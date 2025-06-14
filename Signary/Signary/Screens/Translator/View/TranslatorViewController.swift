@@ -23,7 +23,7 @@ class TranslatorViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Translator"
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
         contentView.delegate = self
 
@@ -65,10 +65,7 @@ extension TranslatorViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showSomethingWentWrongAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert showSomethingWentWrongAlert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }
@@ -77,10 +74,7 @@ extension TranslatorViewController {
             .sink { [weak self] bool in
                 if bool {
                     AlertManager.showInvalidTranslatedWordAlert(on: self!)
-                } else {
-                    print("Что-то пошло не так! Не удалось показать Alert.")
                 }
-                print(bool)
             }
             .store(in: &cancellables)
     }

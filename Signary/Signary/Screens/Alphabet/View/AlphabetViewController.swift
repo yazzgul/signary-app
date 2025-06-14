@@ -20,7 +20,7 @@ class AlphabetViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Alphabet"
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
     }
 

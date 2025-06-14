@@ -34,22 +34,51 @@ class SignInView: UIView {
     }()
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Email"
-        textField.backgroundColor = .darkBlue()
-        textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+        textField.backgroundColor = .darkPurple()
+        textField.textColor = .lightBlue()
+
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Email",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter Password"
-        textField.backgroundColor = .darkBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Enter Password",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
+
         textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -57,19 +86,14 @@ class SignInView: UIView {
     }()
 
     private lazy var goToMainScreenButton: UIButton = {
-//        let button = UIButton()
         let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .subtitleFont
-        button.backgroundColor = .darkBlue()
+        button.titleLabel?.font = .mainButtonFont
+        button.backgroundColor = .darkPurple()
         button.clipsToBounds = true
         button.layer.cornerRadius = 25
 
-//        let action = UIAction { [weak self] _ in
-//            self?.mainScreenDelegate?.goToMainScreenButtonDidPressed()
-//
-//        }
         let action = UIAction { [weak self] _ in
             if let email = self?.emailTextField.text, let password = self?.passwordTextField.text {
                 self?.mainScreenDelegate?.signInButtonDidPressed(email: email, password: password)
@@ -174,7 +198,7 @@ extension SignInView {
             goToResetPasswordScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             goToMainScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            goToMainScreenButton.widthAnchor.constraint(equalToConstant: 150),
+            goToMainScreenButton.widthAnchor.constraint(equalToConstant: 250),
             goToMainScreenButton.heightAnchor.constraint(equalToConstant: 50),
             goToMainScreenButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
 

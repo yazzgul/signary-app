@@ -13,7 +13,6 @@ class TranslatorViewModel {
     func translateWordWithUrl(word: String) {
 
         if !Validator.isValidWordForTranslate(for: word) {
-//            alert
             showInvalidWordAlert = true
             return
         }
@@ -21,7 +20,7 @@ class TranslatorViewModel {
             do {
 //                let endpoint = EndPoint(valueForQuery: word)
 //                if let img = try await NetworkRequest.shared.downloadImage(by: endpoint.requestForTranslatingWord)
-                if let img = try await NetworkService.shared.translateWord(with: "https://american-sign-language-spelling-tool.p.rapidapi.com/\(word)?scale=5") {
+                if let img = try await NetworkService.shared.translateWord(with: "https://american-sign-language-spelling-tool.p.rapidapi.com/\(word)?scale=1") {
 
                     self.translateWordUIImagePublished = img
                 }

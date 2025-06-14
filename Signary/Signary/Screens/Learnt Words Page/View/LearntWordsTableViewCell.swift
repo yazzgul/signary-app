@@ -6,7 +6,7 @@ class LearntWordsTableViewCell: UITableViewCell {
     private lazy var wordLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .subtitleFont
+        label.font = .tableWordFont
         label.textColor = .darkPurple()
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false

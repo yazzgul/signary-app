@@ -8,7 +8,7 @@ class LearntWordsView: UIView {
         table.register(LearntWordsTableViewCell.self, forCellReuseIdentifier: LearntWordsTableViewCell.reuseIdentifier)
         table.backgroundColor = .lightBlue()
         table.contentInsetAdjustmentBehavior = .never
-        table.rowHeight = 70
+        table.rowHeight = 50
         table.showsVerticalScrollIndicator = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
@@ -18,7 +18,7 @@ class LearntWordsView: UIView {
         let label = UILabel()
         label.text = "You didn`t learn any words yet"
         label.numberOfLines = 1
-        label.font = .subtitleFont
+        label.font = .bodyFont
         label.textColor = .delicateBlue()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,9 +44,6 @@ extension LearntWordsView {
 
             noDataCaptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             noDataCaptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-
-//            wordsTableView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            wordsTableView.centerYAnchor.constraint(equalTo: centerYAnchor),
 
             wordsTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             wordsTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),

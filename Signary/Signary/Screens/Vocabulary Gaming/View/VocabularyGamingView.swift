@@ -9,12 +9,16 @@ class VocabularyGamingView: UIView {
 
     private lazy var translateWordImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(named: "type-any-word")
         imageView.contentMode = .scaleAspectFill
+
         imageView.layer.borderWidth = 5
-        imageView.layer.borderColor = UIColor.delicateBlue().cgColor
+        imageView.layer.borderColor = UIColor.darkPurple(alpha: 0.5).cgColor
+
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
         return imageView
     }()
 
@@ -22,7 +26,7 @@ class VocabularyGamingView: UIView {
         let label = UILabel()
         label.text = "No words for learning..."
         label.numberOfLines = 1
-        label.font = .subtitleFont
+        label.font = .bodyFont
         label.textColor = .delicateBlue()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,13 +46,27 @@ class VocabularyGamingView: UIView {
 
     private lazy var wordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Type the word..."
-        textField.backgroundColor = .delicateBlue()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Type the word...",
+            attributes: [
+                .foregroundColor: UIColor.lightBlue(),
+                .font: UIFont.bodyFont
+            ]
+        )
+        textField.backgroundColor = .darkPurple()
         textField.textColor = .lightBlue()
-        textField.borderStyle = .roundedRect
         textField.font = .bodyFont
+
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 25
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
+
         return textField
     }()
 
@@ -56,8 +74,8 @@ class VocabularyGamingView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Submit", for: .normal)
         button.setTitleColor(.lightBlue(), for: .normal)
-        button.titleLabel?.font = .subtitleFont
-        button.backgroundColor = .darkBlue()
+        button.titleLabel?.font = .mainButtonFont
+        button.backgroundColor = .darkPurple()
         button.clipsToBounds = true
         button.layer.cornerRadius = 25
 
@@ -73,11 +91,11 @@ class VocabularyGamingView: UIView {
     }()
 
     private lazy var itemsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [translateWordImageView, guessTheWordLabel, wordTextField, submitButton])
+        let stackView = UIStackView(arrangedSubviews: [translateWordImageView, guessTheWordLabel, wordTextField])
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 7
+        stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -100,6 +118,7 @@ extension VocabularyGamingView {
     private func configureView() {
         addSubview(itemsStackView)
         addSubview(noWordCaptionLabel)
+        addSubview(submitButton)
 
         NSLayoutConstraint.activate ([
 
@@ -109,16 +128,18 @@ extension VocabularyGamingView {
             itemsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             itemsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            translateWordImageView.widthAnchor.constraint(equalToConstant: 200),
-            translateWordImageView.heightAnchor.constraint(equalToConstant: 200),
+            translateWordImageView.widthAnchor.constraint(equalToConstant: 250),
+            translateWordImageView.heightAnchor.constraint(equalToConstant: 250),
 
             guessTheWordLabel.widthAnchor.constraint(equalToConstant: 250),
             guessTheWordLabel.heightAnchor.constraint(equalToConstant: 50),
 
-            wordTextField.widthAnchor.constraint(equalToConstant: 250),
+            wordTextField.widthAnchor.constraint(equalToConstant: 200),
             wordTextField.heightAnchor.constraint(equalToConstant: 50),
 
-            submitButton.widthAnchor.constraint(equalToConstant: 150),
+            submitButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            submitButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            submitButton.widthAnchor.constraint(equalToConstant: 250),
             submitButton.heightAnchor.constraint(equalToConstant: 50)
 
         ])

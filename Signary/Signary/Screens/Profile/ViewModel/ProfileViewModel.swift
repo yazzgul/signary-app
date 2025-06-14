@@ -7,9 +7,9 @@ class ProfileViewModel {
     @Published var showSomethingWentWrongAlert = false
     @Published var showSuccessProfileDeletingAlert = false
 
-    func loadUser() {
-        UserService.shared.getUserFromDatabase()
-    }
+//    func loadUser() {
+//        UserService.shared.getUserFromDatabase()
+//    }
 
     var currentUserPublisher: AnyPublisher<UserInSignary?, Never> {
         return UserService.shared.$currentUser
@@ -32,7 +32,6 @@ class ProfileViewModel {
                 return
             }
             if successInOut {
-//                for default logic
                 UserDefaults.standard.removeObject(forKey: "isLogged")
             }
         }

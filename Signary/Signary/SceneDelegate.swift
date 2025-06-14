@@ -10,13 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-//        var rootVC: UIViewController
-
-        UINavigationBar.appearance().titleTextAttributes = [
-            .font: UIFont.navigationBarFont,
-            .foregroundColor: UIColor.delicateBlue()
-        ]
-        UINavigationBar.appearance().tintColor = UIColor.darkBlue()
+        NavigationBarAppearanceConfiguration.applyGlobalAppearance()
 
         if UserDefaults.standard.bool(forKey: "isLogged") {
             let tabBarController = MainTabBarController()

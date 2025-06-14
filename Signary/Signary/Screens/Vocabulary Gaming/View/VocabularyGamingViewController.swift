@@ -22,8 +22,6 @@ class VocabularyGamingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-//        loadLearntWordsList()
-
         self.tabBarController?.tabBar.isHidden = true
     }
 
@@ -38,7 +36,7 @@ class VocabularyGamingViewController: UIViewController {
 
         view = contentView
 
-        navigationItem.title = "Game"
+        NavigationBarAppearanceConfiguration.applyTitleView(to: navigationItem)
 
         contentView.delegate = self
         contentView.setupDelegateForTextFields(viewControllerDelegate: self)
@@ -47,10 +45,7 @@ class VocabularyGamingViewController: UIViewController {
 
         checkTranslateWordList()
 
-
-
     }
-
 
 }
 extension VocabularyGamingViewController {

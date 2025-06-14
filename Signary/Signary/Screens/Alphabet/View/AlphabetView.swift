@@ -6,9 +6,14 @@ class AlphabetView: UIView {
         let imageView = UIImageView()
          imageView.image = UIImage(named: "sign-lang-alphabet")
         imageView.contentMode = .scaleToFill
+//        imageView.contentMode = .scaleAspectFill
+
         imageView.layer.borderWidth = 5
-        imageView.layer.borderColor = UIColor.delicateBlue().cgColor
+        imageView.layer.borderColor = UIColor.darkPurple(alpha: 0.5).cgColor
+
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -32,8 +37,8 @@ extension AlphabetView {
             alphabetImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             alphabetImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            alphabetImageView.widthAnchor.constraint(equalToConstant: 350),
-            alphabetImageView.heightAnchor.constraint(equalToConstant: 350)
+            alphabetImageView.heightAnchor.constraint(equalToConstant: 320),
+            alphabetImageView.widthAnchor.constraint(equalToConstant: 370)
 
         ])
     }
